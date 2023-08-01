@@ -2,7 +2,7 @@
 
 Speed limit signs are important for promoting safe driving practices, providing drivers with information about road conditions, and enforcing traffic laws. By indicating the maximum speed at which vehicles should travel on a particular road, these signs can help to reduce the likelihood of accidents caused by excessive speed. 
 
-Machine learning can be utilised to recognize road signs, using computer vision algorithms trained on large datasets of labelled images. These algorithms allow machines to accurately identify different types of road signs, improving road safety and enhancing autonomous driving systems. 
+Machine learning can be utilised to recognise road signs, using computer vision algorithms trained on large datasets of labelled images. These algorithms allow machines to accurately identify different types of road signs, improving road safety and enhancing autonomous driving systems. 
 ## Description
 This project implements a Convolutional Neural Network (CNN) model for detecting Speed Limit signs from images. The CNN is trained on a dataset containing images of Speed Limit signs and non-Speed Limit images. After training, the model can accurately classify new images as either having a Speed Limit sign or not, making it useful for various real-world applications, including traffic sign recognition systems and road safety enhancement.
 
@@ -45,7 +45,7 @@ pip install tensorflow keras scikit-image
    - Load the dataset and print folder names and the number of categories detected.
    - Augment the training data and set up data generators for training, validation, and testing.
    - Build the CNN model with the specified architecture.
-   - Train the model and visualize its accuracy and loss during training.
+   - Train the model and visualise its accuracy and loss during training.
    - Evaluate the model's performance on the test dataset.
    - Save the trained model as "model.h5".
    - Test the model on new images and classify them as having a Speed Limit sign or not.
