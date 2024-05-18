@@ -1,68 +1,90 @@
-# Speed Limit Sign Detection using Convolutional Neural Networks (CNN)
+# Road Sign Detection using Convolutional Neural Networks (CNN)
 
-Speed limit signs are important for promoting safe driving practices, providing drivers with information about road conditions, and enforcing traffic laws. By indicating the maximum speed at which vehicles should travel on a particular road, these signs can help to reduce the likelihood of accidents caused by excessive speed. 
-
-Machine learning can be utilised to recognise road signs, using computer vision algorithms trained on large datasets of labelled images. These algorithms allow machines to accurately identify different types of road signs, improving road safety and enhancing autonomous driving systems. 
 ## Description
-This project implements a Convolutional Neural Network (CNN) model for detecting Speed Limit signs from images. The CNN is trained on a dataset containing images of Speed Limit signs and non-Speed Limit images. After training, the model can accurately classify new images as either having a Speed Limit sign or not, making it useful for various real-world applications, including traffic sign recognition systems and road safety enhancement.
+
+Road sign detection and classification play a crucial role in autonomous driving systems. This project utilises TensorFlow and Keras to create a CNN model that can classify road signs into various categories.
 
 ## Dataset Directory Structure
 Ensure the dataset is organised in the following directory structure:
+
 ```
-C:/Users/funmi/GitRepositories/Speed-Limit-Sign-Detection/Roadsignfile
-    ├── train
-    │   ├── Speed_Limit_20
-    │   ├── Speed_Limit_30
-    │   ├── Speed_Limit_50
-    │   └── ...
-    ├── test
-    │   ├── Speed_Limit_20
-    │   ├── Speed_Limit_30
-    │   ├── Speed_Limit_50
-    │   └── ...
-    └── val
-        ├── Speed_Limit_20
-        ├── Speed_Limit_30
-        ├── Speed_Limit_50
-        └── ...
+ROAD-SIGN-DETECTION/
+│
+├── traffic Data/
+│   ├── TEST/
+│   ├── TRAIN/
+│   └── VAL/
+│
+├── Classifying Road Signs.ipynb
+├── labels.csv
+├── model.h5
+├── README.md
+└── Splitting Dataset.ipynb
 ```
+
+In this structure:
+- The `traffic Data` directory contains subdirectories `TEST`, `TRAIN`, and `VAL`, which store the testing, training, and validation datasets respectively.
+- `Classifying Road Signs.ipynb` is a Jupyter Notebook containing code for classifying road signs.
+- `labels.csv` is a CSV file containing labels for the images in the dataset.
+- `model.h5` is the trained model saved in HDF5 format.
+- `README.md` is the readme file containing project documentation and instructions.
+- `Splitting Dataset.ipynb` is a Jupyter Notebook containing code for splitting the dataset into training and validation sets.
+
 ## Splitting Dataset
-To split the dataset, you can use the `Splitting Dataset.ipynb` notebook. This notebook uses the `splitfolders` library to split the dataset into train, validation, and test sets with specified ratios. The resulting split datasets will be saved in the folder `"C:/Users/funmi/Documents/Roadsignfile"` and the file `"Roadsignfile"` was copy and pasted into my repository's file path. You can also save the split datasets directly into your repository.
+To split the dataset, you can use the `Splitting Dataset.ipynb` notebook. This notebook uses the `splitfolders` library to split the dataset into training and validation sets with specified ratios. 
+
+## Dependencies
+Ensure you have the following dependencies installed:
+- TensorFlow
+- matplotlib
+- pandas
+- numpy
+- PIL
+
+You can install these dependencies via pip:
+```bash
+pip install tensorflow matplotlib pandas numpy Pillow 
+```
 
 ## Usage
-Follow these steps to use the provided code and train your own Speed Limit sign detection model:
-
-1. **Install Required Libraries:** Before getting started, ensure you have the necessary libraries installed. Open a terminal or command prompt and run the following command to install the required packages:
-
+1. **Clone the repository:**
 ```bash
-pip install tensorflow keras scikit-image
+git clone https://github.com/FunmiOlaitan/Road-Sign-Detection.git
+cd Road-Sign-Detection
 ```
 
-2. **Dataset Preparation:** Organise your dataset according to the specified [Dataset Directory Structure](#dataset-directory-structure). Create separate folders for training, testing, and validation data, each containing images of Speed Limit signs in their respective subfolders.
+2. **Load and Analyze Dataset:**
+   - The dataset is located in the `traffic_Data` directory.
+   - Use the provided Python script to load and analyze the dataset, including class distribution and visualizations.
 
-3. **Training the Model:** Open the `Classifying Speed Limit Signs.ipynb` notebook to implement and train the CNN model. The notebook will perform the following steps:
+3. **Preprocessing:**
+   - Images are preprocessed and augmented using the `ImageDataGenerator` from TensorFlow's Keras API.
 
-   - Load the dataset and print folder names and the number of categories detected.
-   - Augment the training data and set up data generators for training, validation, and testing.
-   - Build the CNN model with the specified architecture.
-   - Train the model and visualise its accuracy and loss during training.
-   - Evaluate the model's performance on the test dataset.
-   - Save the trained model as "model.h5".
-   - Test the model on new images and classify them as having a Speed Limit sign or not.
+4. **Build Custom Model:**
+   - A custom CNN model is built using TensorFlow's Keras functional API. It consists of convolutional, max-pooling, flatten, dense, dropout, and softmax layers.
 
-4. **Inference on New Images:** The trained model can be used to make predictions on new images containing Speed Limit signs. Use the `classifier()` function in the `Classifying Speed Limit Signs.ipynb` notebook. Provide the file path of the image as an argument to the function.
+5. **Train the Model:**
+   - The model is trained using the training data and validated using the validation data.
+   - Training history (accuracy and loss) is visualised using Matplotlib.
 
-   Example usage:
-   ```python
-   classifier("C:/Users/funmi/GitRepositories/Speed-Limit-Sign-Detection/RoadSign.jpg")
-   classifier("C:/Users/funmi/GitRepositories/Speed-Limit-Sign-Detection/NotRoadSign.jpg")
-   ```
+6. **Save the Model:**
+   - Once trained, the model is saved in the `.h5` format for future use.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Customisation
+You can customise the project by adjusting the following:
+- Image dimensions and batch size for training.
+- CNN model architecture and hyperparameters.
+- Data augmentation techniques.
+- Training epochs and learning rate.
+
 
 ## Acknowledgements
 Special thanks to the creators of the `splitfolders` library for simplifying dataset splitting and to the authors of the various libraries used in this project.
 
 ## Support
 For any issues or inquiries, feel free to open an issue in the repository. Your contributions and feedback are welcome to enhance the project further.
+
+## Credits:
+
+For any questions or issues, please contact the author at Funmilolaolaitan@yahoo.com
